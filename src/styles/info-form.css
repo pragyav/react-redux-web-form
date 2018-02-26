@@ -1,0 +1,49 @@
+.name-phone {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.half-name {
+  flex: 1 1 60%;
+}
+
+.half-phone {
+  flex: 1 1 39%;
+}
+
+.csrz {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.quarter-city {
+  flex: 1 1 24%;
+}
+
+.quarter-state {
+  flex: 1 1 24%;
+}
+
+.quarter-region {
+  flex: 1 1 24%;
+}
+
+.quarter-zip {
+  flex: 1 1 24%;
+}
+
+input[type="text"].invalid {
+  border-color: #ff3838; 
+}
+
+input[type="email"].invalid {
+  border-color: #ff3838; 
+}
+
+input[type="url"].invalid {
+  border-color: #ff3838; 
+}
+
+.error-msg{
+  color:#ff3838;  
+}
