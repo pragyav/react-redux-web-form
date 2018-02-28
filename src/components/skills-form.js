@@ -1,157 +1,110 @@
-import React, { Component } from "react";
-import "../styles/skills-form.css";
+import React from "react";
+import { Field, reduxForm } from "redux-form";
+import "../styles/skills-form.scss";
 
-class SkillsForm extends Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = {
+const SkillsForm = props => {
 
-      disciplines: [
-        { label: "Design Research", checked: false, id: "desresearch" }, 
-        { label: "Visual Design", checked: false, id: "visdesign" }, 
-        { label: "UX Design", checked: false, id: "uxdesign" }, 
-        { label: "Front-end Dev", checked: false, id: "frontenddev" }
-      ],
+    const { handleSubmit } = props;
+ 
+    const db = {
 
-      skills: [
-        { label: "Visual Design", checked: false, id: "visualdes" }, 
-        { label: "UX Design", checked: false, id: "uxdes" }, 
-        { label: "Front-end Development", checked: false, id: "frontdev" }
-      ],
+        disciplines: [
+            { label: "Design Research", checked: false, id: "desresearch" }, 
+            { label: "Visual Design", checked: false, id: "visdesign" }, 
+            { label: "UX Design", checked: false, id: "uxdesign" }, 
+            { label: "Front-end Dev", checked: false, id: "frontenddev" }
+        ],
 
-      locations: [
-        { label: "Austin, Texas", checked: false, id: "texas" }, 
-        { label: "New York, New York", checked: false, id: "newyork" }, 
-        { label: "Toronto, Canada", checked: false, id: "canada" }, 
-        { label: "Shanghai, China", checked: false, id: "china" }, 
-        { label: "Dublin, Ireland", checked: false, id: "ireland" }, 
-        { label: "Hursley, United Kingdom", checked: false, id: "uk" }, 
-        { label: "Boeblingen, Germany", checked: false, id: "germany" }, 
-        { label: "Somewhere else", checked: false, id: "somewhere" }
-      ] 
-    };
-  }
+        skills: [
+            { label: "Visual Design", checked: false, id: "visualdes" }, 
+            { label: "UX Design", checked: false, id: "uxdes" }, 
+            { label: "Front-end Development", checked: false, id: "frontdev" }
+        ],
 
-  handleFormSubmit = formSubmitEvent => {
-    formSubmitEvent.preventDefault();
-  };
+        locations: [
+            { label: "Austin, Texas", checked: false, id: "texas" }, 
+            { label: "New York, New York", checked: false, id: "newyork" }, 
+            { label: "Toronto, Canada", checked: false, id: "canada" }, 
+            { label: "Shanghai, China", checked: false, id: "china" }, 
+            { label: "Dublin, Ireland", checked: false, id: "ireland" }, 
+            { label: "Hursley, United Kingdom", checked: false, id: "uk" }, 
+            { label: "Boeblingen, Germany", checked: false, id: "germany" }, 
+            { label: "Somewhere else", checked: false, id: "somewhere" }
+        ] 
+    };  
 
-  render() {
-    const disciplineInputs = this.state.disciplines.map((disciplineOpt, i) => ( <div key={i}>
-          <input
+    const disciplineInputs = db.disciplines.map((disciplineOpt, i) => ( <div key={i}>
+        <Field
             type="radio"
             name="disciplines"
+            value={disciplineOpt.id}
+            component= "input"
             id={disciplineOpt.id}
-            checked={disciplineOpt.checked}
-            onChange={() => {
-              const newDisciplines = this.state.disciplines.map(
-                (newObj, newIndex) => {
-                  return i === newIndex
-                    ? { ...newObj, checked: true }
-                    : { ...newObj, checked: false };
-                }
-              );
-
-              this.setState({ disciplines: newDisciplines });
-            }}
-          />
-          <label className="skill" htmlFor={disciplineOpt.id}>
+        />
+        <label className="skill" htmlFor={disciplineOpt.id}>
             {disciplineOpt.label}
-          </label>
-        </div>
-      )
+        </label>
+    </div>
+    )
     );    
 
-    const skillsInputs = this.state.skills.map((skillOpt, i) => (
-      <div key={i}>
-        <input
-          type="checkbox"
-          id={skillOpt.id}
-          checked={
-            this.state.skills.find(skill => skill.label === skillOpt.label)
-              .checked
-          }
-          onChange={() => {
-            const selectedSkillIndex = this.state.skills.findIndex(
-              skill => skill.label === skillOpt.label
-            );
-            const selectedSkill = this.state.skills[selectedSkillIndex];
-            const newSkill = {
-              ...selectedSkill,
-              checked: !selectedSkill.checked
-            };
-            const newSkillsArr = [
-              ...this.state.skills.slice(0, selectedSkillIndex),
-              newSkill,
-              ...this.state.skills.slice(selectedSkillIndex + 1)
-            ];
-
-            this.setState({
-              skills: newSkillsArr
-            });
-          }}
-        />
-        <label htmlFor={skillOpt.id}>{skillOpt.label}</label>
-      </div>
+    const skillsInputs = db.skills.map((skillOpt, i) => (
+        <div key={i}>
+            <Field
+                type="checkbox"
+                component= "input"
+                name={skillOpt.id} 
+                id={skillOpt.id}    
+            />
+            <label htmlFor={skillOpt.id}>{skillOpt.label}</label>
+        </div>
     ));
-
-    const locationInputs = this.state.locations.map((skillOpt, i) => (
-      <div key={i}>
-        <input
-          type="checkbox"
-          id={skillOpt.id}
-          checked={
-            this.state.locations.find(
-              skill => skill.label === skillOpt.label
-            ).checked
-          }
-          onChange={() => {
-            const selectedSkillIndex = this.state.locations.findIndex(skill => skill.label === skillOpt.label);
-            const selectedSkill = this.state.locations[selectedSkillIndex];
-            const newSkill = {
-              ...selectedSkill,
-              checked: !selectedSkill.checked
-            };
-            const newSkillsArr = [...this.state.locations.slice(0, selectedSkillIndex), newSkill, ...this.state.locations.slice(selectedSkillIndex + 1)];
-
-            this.setState({ locations: newSkillsArr });
-          }}
-        />
-        <label htmlFor={skillOpt.id}>{skillOpt.label}</label>
-      </div>
+    const locationInputs = db.locations.map((locationOpt, i) => (
+        <div key={i}>
+            <Field
+                type="checkbox"
+                component= "input"
+                name={locationOpt.id}
+                id={locationOpt.id}
+            />
+            <label htmlFor={locationOpt.id}>{locationOpt.label}</label>
+        </div>
     ));
 
     return (
-    <form onSubmit={this.handleFormSubmit}>
-        <p>2. Skills and location</p>
-        <hr />
-        <p>Which is your primary design discipline?</p>
+        <form onSubmit={handleSubmit}>
+            <p>2. Skills and location</p>
+            <hr />
+            <p>Which is your primary design discipline?</p>
 
-        <div className="primaryskill">{disciplineInputs}</div>
+            <div className="primaryskill">
+                {disciplineInputs}
+            </div>
 
-        <div className="experience">
-          <div id="discipline">
-            <p>Do you have experience with any other disciplines?</p>
-              {skillsInputs}
-          </div>
+            <div className="experience">
+                <div id="discipline">
+                    <p>Do you have experience with any other disciplines?</p>
+                    {skillsInputs}
+                </div>
 
-          <div id="working">
-            <p>Where are you interested in working?</p>
-            <p>
+                <div id="working">
+                    <p>Where are you interested in working?</p>
+                    <p>
               You must be legally authorized to work without visa
               sponsorship in the location you choose.
-            </p>
-            {locationInputs}
-          </div>
-        </div>
+                    </p>
+                    {locationInputs}
+                </div>
+            </div>
 
-        <button type="submit" value="Submit" className="submitBtn" id="confirm">          
+            <button type="submit" value="Submit" className="submitBtn" id="confirm">          
           Submit
-        </button>
-    </form>
+            </button>
+        </form>
     );
-  }
-}
+};
 
-export default SkillsForm;
+
+export default reduxForm({
+    form: "skills"
+})(SkillsForm);

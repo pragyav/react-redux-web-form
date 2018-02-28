@@ -1,45 +1,37 @@
-import React, { Component } from "react";
-import { Field, reduxForm } from 'redux-form'
-import "../styles/portfolio-form.css";
+import React from "react";
+import { Field, reduxForm } from "redux-form";
+import "../styles/portfolio-form.scss";
 
-class PortfolioForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
-      portfolio: "", 
-      message:"" 
-    };
-  }
+const PortfolioForm = props => {
 
-  handleFormSubmit = formSubmitEvent => {
-    formSubmitEvent.preventDefault();   
-  };
-
-  render() {
-    return (
-    <form onSubmit={this.handleFormSubmit}>
-        <p>3. Portfolio</p>
-        <hr />
-        <p>
+    const { handleSubmit } = props;
+    return (   
+        <form onSubmit={handleSubmit}>
+            <p>3. Portfolio</p>
+            <hr />
+            <p>
           Prove you are IBM's next great designer by showing us who you are.
           What you've done.How you think.Tell us your story.
-        </p>
-        <div>
-          <input type="url" id="portfolio" name="portfolio" placeholder="Porfolio Link*" value={this.state.portfolio} onChange={e => this.setState(
-                { portfolio: e.target.value }
-              )} />
-        </div>
-        <div>
-          <textarea id="msg" name="user_message" placeholder="Anything else (another link, availability etc.)?" value={this.state.message} onChange={e => this.setState(
-                { message: e.target.value }
-              )} />
-        </div>
-
-        <button type="submit" value="Submit" className="portfolioSubmitBtn" id="confirm">   Submit
-        </button>
-    </form>
+            </p>
+            <div>
+                <Field 
+                    type="url" 
+                    name="portfolio" 
+                    placeholder="Porfolio Link*" 
+                    component= "input"/>
+            </div>
+            <div>
+                <Field 
+                    name="user_message" 
+                    placeholder="Anything else (another link, availability etc.)?" 
+                    component= "textarea"/>
+            </div>
+            <button type="submit" value="Submit" className="portfolioSubmitBtn">   Submit
+            </button>
+        </form>
     );
-  }
-}
+};
 
-export default PortfolioForm;
+export default reduxForm({
+    form: "portfolio"
+})(PortfolioForm);
