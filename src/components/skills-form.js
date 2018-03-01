@@ -33,15 +33,15 @@ const SkillsForm = props => {
         ] 
     };  
 
-    const disciplineInputs = db.disciplines.map((disciplineOpt, i) => ( <div key={i}>
-        <Field
+    const disciplineInputs = db.disciplines.map((disciplineOpt, i) => ( <div className="skillDiv" key={i}>
+        <Field            
             type="radio"
             name="disciplines"
             value={disciplineOpt.id}
             component= "input"
             id={disciplineOpt.id}
         />
-        <label className="skill" htmlFor={disciplineOpt.id}>
+        <label className='skillLabel' htmlFor={disciplineOpt.id}>
             {disciplineOpt.label}
         </label>
     </div>

@@ -1,23 +1,28 @@
-.primaryskill {
-  width: 100%;
+.primaryskill {  
   padding: 2em;
   display: flex;
+  flex-flow: column;  
+
+  .skillDiv {
+    padding: 1em 0;
+    margin: 1em 0;
+    text-align: center;
+
+    .skillLabel{
+      cursor: pointer;
+      border: 1px solid white;
+      padding: 1em;
+      margin: 1em;
+      white-space: nowrap;
+    }
+  }  
 }
 
-.skill {
-  background: #454e57;
-  border: 1px solid white;
-  color: #fff;
-  cursor: pointer;
-  font-size: 1.2em;
-  font-weight: 500;
-  letter-spacing: 0;
-  margin: 2em 0 8em 0;
-  padding: 1em;
-}
 
 input[type="radio"] {
   opacity: 0;
+  width: 0;
+  margin:0;
 }
 
 input[type="radio"]:checked + label {
@@ -82,4 +87,13 @@ input[type="checkbox"]:checked + label:before {
 label:hover .delBtn {
   color: red;
   display: inline-block;
+}
+
+
+@media only screen and (min-width: 720px) {
+
+  .primaryskill {
+    flex-flow: row nowrap;
+  }
+  
 }

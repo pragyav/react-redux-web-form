@@ -9,6 +9,7 @@
 
 .half-phone {
   flex: 1 1 39%;
+  min-width: 100px;
 }
 
 .csrz {
@@ -18,18 +19,22 @@
 
 .quarter-city {
   flex: 1 1 24%;
+  min-width: 100px;
 }
 
 .quarter-state {
   flex: 1 1 24%;
+  min-width: 100px;
 }
 
 .quarter-region {
   flex: 1 1 24%;
+  min-width: 100px;
 }
 
 .quarter-zip {
   flex: 1 1 24%;
+  min-width: 100px;
 }
 
 input[type="text"].invalid {
