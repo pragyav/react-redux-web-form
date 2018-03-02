@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink, withRouter } from "react-router-dom";
 import IBM from "../images/IBM.png";
-import "../styles/header.scss";
 
 const Header = () => {
     return (

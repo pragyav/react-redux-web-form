@@ -1,6 +1,5 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
-import "../styles/info-form.scss";
 
 const validate = values => {
     const errors = {};

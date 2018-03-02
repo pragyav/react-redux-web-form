@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import MainLayout from "./components/mainLayout";
-import "./App.scss";
+import MainLayout from "./mainLayout";
+import "../styles/main.scss";
 
 class App extends Component {  
     render() {

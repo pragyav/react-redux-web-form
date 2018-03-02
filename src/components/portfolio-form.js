@@ -1,6 +1,5 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
-import "../styles/portfolio-form.scss";
 
 const PortfolioForm = props => {
 
