@@ -1,7 +1,8 @@
+@import '../utils/variables';
 textarea {
     vertical-align: top;  
-    background-color:#454e57;
-    border: 1px dotted #6f7878;
+    background-color:map-get($colors, darkGrey);
+    border: 1px dotted map-get($colors, lightGrey);
     box-sizing: border-box;
     color: white;
     font-weight: 300;
@@ -13,8 +14,8 @@ textarea {
 }
 
 button.portfolioSubmitBtn {   
-    background: #047cc0;
-    border: 1px solid #047cc0;
+    background:map-get($colors, lightBlue);
+    border: 1px solid map-get($colors, lightBlue);
     color: #fff;
     cursor: pointer;
     font-size: 1.2em;

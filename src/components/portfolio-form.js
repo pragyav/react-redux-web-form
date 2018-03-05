@@ -1,5 +1,8 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
+import styles from "../styles/components/portfolio-form.scss";
+
+console.log("styles: ",styles);
 
 const PortfolioForm = props => {
 
@@ -25,7 +28,7 @@ const PortfolioForm = props => {
                     placeholder="Anything else (another link, availability etc.)?" 
                     component= "textarea"/>
             </div>
-            <button type="submit" value="Submit" className="portfolioSubmitBtn">   Submit
+            <button type="submit" value="Submit" className={styles.portfolioSubmitBtn}>   Submit
             </button>
         </form>
     );

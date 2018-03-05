@@ -1,5 +1,9 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
+import styles from "../styles/components/info-form.scss";
+import stylesApp from "../styles/components/App.scss";
+
+console.log("styles: ",styles);
 
 const validate = values => {
     const errors = {};
@@ -84,8 +88,8 @@ const InfoForm = props => {
                 <p>1. Personal information</p>
                 <hr />
             </div>
-            <div className="name-phone">
-                <div className="half-name">
+            <div className={styles["name-phone"]}>
+                <div className={styles["half-name"]}>
                     <Field           
                         type="text"          
                         name="name"
@@ -93,7 +97,7 @@ const InfoForm = props => {
                         placeholder="Full name*"           
                     />
                 </div>
-                <div className="half-phone">
+                <div className={styles["half-phone"]}>
                     <Field            
                         type="text"          
                         name="phone"
@@ -126,8 +130,8 @@ const InfoForm = props => {
                     placeholder="Address*"  
                 />        
             </div>
-            <div className="csrz">
-                <div className="quarter-city">
+            <div className={styles.csrz}>
+                <div className={styles["quarter-city"]}>
                     <Field           
                         type="text"            
                         name="city"
@@ -135,7 +139,7 @@ const InfoForm = props => {
                         placeholder="City*"           
                     />          
                 </div>
-                <div className="quarter-state">
+                <div className={styles["quarter-state"]}>
                     <Field                   
                         type="text"             
                         name="state"
@@ -143,7 +147,7 @@ const InfoForm = props => {
                         placeholder="State"            
                     />          
                 </div>
-                <div className="quarter-region">
+                <div className={styles["quarter-region"]}>
                     <Field           
                         type="text"            
                         name="country"
@@ -151,7 +155,7 @@ const InfoForm = props => {
                         placeholder="Country/Region*"  
                     />            
                 </div>
-                <div className="quarter-zip">
+                <div className={styles["quarter-zip"]}>
                     <Field            
                         type="text"             
                         name="zipcode"
@@ -169,7 +173,7 @@ const InfoForm = props => {
                 />        
             </div> 
 
-            <button type="submit"  className="submitBtn" >
+            <button type="submit"  className={stylesApp.submitBtn} >
         Submit
             </button>
         </form>

@@ -1,15 +1,18 @@
 import React from "react";
 import { NavLink, withRouter } from "react-router-dom";
 import IBM from "../images/IBM.png";
+import styles from "../styles/components/header.scss";
+
+console.log("styles: ",styles);
 
 const Header = () => {
-    return (
-        <div className="menu">
+    return (        
+        <div className={styles.menu}>
             <div>
                 <img src={IBM} alt="IBM" />
             </div>
-            <ul className="flex-container">
-                <li className="flex-item">
+            <ul className={styles["flex-container"]} >
+                <li className={styles["flex-item"]}>
                     <NavLink exact to="/home/info-form"
                         isActive={(match, location) => {              
                             return location.pathname === "/home" ||
@@ -23,7 +26,7 @@ const Header = () => {
             Information
                     </NavLink>
                 </li>
-                <li className="flex-item">
+                <li className={styles["flex-item"]}>
                     <NavLink to="/home/skills-form"
                         isActive={(match, location) => {              
                             return location.pathname === "/home/skills-form";
@@ -36,7 +39,7 @@ const Header = () => {
             Skills
                     </NavLink>
                 </li>
-                <li className="flex-item">
+                <li className={styles["flex-item"]}>
                     <NavLink to="/home/portfolio-form"
                         isActive={(match, location) => {              
                             return location.pathname === "/home/portfolio-form";

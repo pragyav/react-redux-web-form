@@ -1,3 +1,4 @@
+@import '../utils/variables';
 .menu {
   background: #fff;  
   display: flex;
@@ -19,7 +20,7 @@ img {
 }
 
 .flex-item { 
-    background-color:#454e57;     
+    background-color:map-get($colors, darkGrey);   
     list-style-type: none;
     flex: 1 1 10%;
     border: 2px solid #f2f4f5;

@@ -4,13 +4,14 @@ import Header from "./header";
 import InfoForm from "./info-form";
 import SkillsForm from "./skills-form";
 import PortfolioForm from "./portfolio-form";
+import styles from "../styles/components/App.scss";
 
 class MainLayout extends Component {
     render() {    
         return (     
-            <div className="page">
+            <div className={styles.page}>
                 <Header />
-                <div className="header">
+                <div className={styles.header}>
                     <h2>Let's talk</h2>
                     <p>Think you have what it takes? Show us.</p>
                 </div> 

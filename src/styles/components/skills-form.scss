@@ -1,3 +1,4 @@
+@import '../utils/variables';
 .primaryskill {  
   padding: 2em;
   display: flex;
@@ -26,7 +27,7 @@ input[type="radio"] {
 }
 
 input[type="radio"]:checked + label {
-  background: #047cc0;
+  background: map-get($colors, lightBlue);
 }
 
 .experience {

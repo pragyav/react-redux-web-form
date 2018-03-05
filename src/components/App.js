@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import MainLayout from "./mainLayout";
-import "../styles/main.scss";
+import styles from "../styles/components/App.scss";
 
 class App extends Component {  
+    
     render() {
+        console.log("styles: ",styles);
         return (              
-            <div className="page">
+            <div className={styles.page}>
                 <BrowserRouter>
                     <div>     
                         <Switch>            

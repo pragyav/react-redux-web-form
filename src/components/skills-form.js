@@ -1,5 +1,9 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
+import styles from "../styles/components/skills-form.scss";
+import stylesApp from "../styles/components/App.scss";
+
+console.log("styles: ",styles);
 
 const SkillsForm = props => {
 
@@ -32,7 +36,7 @@ const SkillsForm = props => {
         ] 
     };  
 
-    const disciplineInputs = db.disciplines.map((disciplineOpt, i) => ( <div className="skillDiv" key={i}>
+    const disciplineInputs = db.disciplines.map((disciplineOpt, i) => ( <div className={styles.skillDiv} key={i}>
         <Field            
             type="radio"
             name="disciplines"
@@ -40,7 +44,7 @@ const SkillsForm = props => {
             component= "input"
             id={disciplineOpt.id}
         />
-        <label className='skillLabel' htmlFor={disciplineOpt.id}>
+        <label className={styles.skillLabel} htmlFor={disciplineOpt.id}>
             {disciplineOpt.label}
         </label>
     </div>
@@ -76,11 +80,11 @@ const SkillsForm = props => {
             <hr />
             <p>Which is your primary design discipline?</p>
 
-            <div className="primaryskill">
+            <div className={styles.primaryskill}>
                 {disciplineInputs}
             </div>
 
-            <div className="experience">
+            <div className={styles.experience}>
                 <div id="discipline">
                     <p>Do you have experience with any other disciplines?</p>
                     {skillsInputs}
@@ -96,7 +100,7 @@ const SkillsForm = props => {
                 </div>
             </div>
 
-            <button type="submit" value="Submit" className="submitBtn" id="confirm">          
+            <button type="submit" value="Submit" className={stylesApp.submitBtn} id={styles.confirm}>          
           Submit
             </button>
         </form>
