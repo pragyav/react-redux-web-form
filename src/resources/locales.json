@@ -1,0 +1,18 @@
+{
+    "en": {
+        "translation": {
+            "Information": "Information",
+            "Skills": "Skills",
+            "Portfolio": "Portfolio",
+            "Translate": "Translate"
+        }
+    },
+    "fi": {
+        "translation": {
+            "Information": "Tiedot",
+            "Skills": "Taito",
+            "Portfolio": "salkku",
+            "Translate": "Kääntää"
+        }
+    }
+}
