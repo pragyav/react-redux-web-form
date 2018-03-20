@@ -1,10 +1,14 @@
+/* @flow */
 import React from "react";
 import { Field, reduxForm } from "redux-form";
+import type { FormProps } from "redux-form";
 import styles from "../styles/components/portfolio-form.scss";
 
 console.log("styles: ",styles);
 
-const PortfolioForm = props => {
+type Props = FormProps
+
+const PortfolioForm = (props: Props ) => {
 
     const { handleSubmit } = props;
     return (   

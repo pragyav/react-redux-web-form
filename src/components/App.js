@@ -1,9 +1,10 @@
+/* @flow */
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import MainLayout from "./mainLayout";
 import styles from "../styles/components/App.scss";
 
-class App extends Component {  
+class App extends Component <{}>{  
     
     render() {
         console.log("styles: ",styles);

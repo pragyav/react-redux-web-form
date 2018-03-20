@@ -1,11 +1,15 @@
+/* @flow */
 import React from "react";
 import { Field, reduxForm } from "redux-form";
+import type { FormProps } from "redux-form";
 import styles from "../styles/components/skills-form.scss";
 import stylesApp from "../styles/components/App.scss";
 
 console.log("styles: ",styles);
 
-const SkillsForm = props => {
+type Props = FormProps
+
+const SkillsForm = (props: Props) => {
 
     const { handleSubmit } = props;
  

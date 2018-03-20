@@ -1,5 +1,7 @@
+/* @flow */
 import React from "react";
 import { Field, reduxForm } from "redux-form";
+import type { FormProps } from "redux-form";
 import styles from "../styles/components/info-form.scss";
 import stylesApp from "../styles/components/App.scss";
 
@@ -64,22 +66,26 @@ const validate = values => {
     return errors;
 };
 
-const renderField = ({
-    input,
-    label,
-    type,
-    placeholder,
-    meta: { touched, error}
-}) => (   
+const renderField = ({ input, label, type, placeholder, meta: { touched, error } }: {
+    input: Object;
+    label: string;
+    type: string;
+    placeholder: string;   
+    meta: {
+            touched: any;
+            error: string;
+        };
+    }): Object => (   
     <div>
         <input {...input} placeholder={placeholder} type={type} />
         {touched &&
-        ((error && <span>{error}</span>))}
+            ((error && <span>{error}</span>))}
     </div> 
 );
 
+type Props = FormProps
 
-const InfoForm = props => {
+const InfoForm = (props: Props ) => {
 
     const { handleSubmit } = props;
     return (

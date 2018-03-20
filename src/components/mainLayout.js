@@ -1,12 +1,18 @@
+/* @flow */
 import React, { Component } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
+import type { Match } from "react-router-dom";
 import Header from "./header";
 import InfoForm from "./info-form";
 import SkillsForm from "./skills-form";
 import PortfolioForm from "./portfolio-form";
 import styles from "../styles/components/App.scss";
 
-class MainLayout extends Component {
+type Props = {    
+    match: Match,
+  }
+  
+class MainLayout extends Component <Props>{
     render() {    
         return (     
             <div className={styles.page}>

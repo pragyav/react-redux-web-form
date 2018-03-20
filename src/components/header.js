@@ -1,11 +1,15 @@
+/* @flow */
 import React from "react";
 import { NavLink, withRouter } from "react-router-dom";
-import { I18n } from "react-i18next";
-import { translate } from "react-i18next";
+import { I18n, translate } from "react-i18next";
+import type { TFunction } from "react-i18next";
 import IBM from "../images/IBM.png";
 import styles from "../styles/components/header.scss";
 
-const Header = (props) => {
+type OwnProps = { i18n: Object }
+type Props = OwnProps & { t: TFunction }
+
+const Header = (props: Props) => {
 
     const handleChangeLang=(e)=>{
         props.i18n.changeLanguage(e.target.value);        
@@ -13,7 +17,7 @@ const Header = (props) => {
    
     return (
         <I18n>
-            {(t, { i18n }) => (
+            {(t , { i18n }) => (
                 <div className={styles.menu}>
                     <div>
                         <img src={IBM} alt="IBM" />
