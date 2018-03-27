@@ -12,7 +12,7 @@ type Props = {
     match: Match,
   }
   
-class MainLayout extends Component <Props>{
+export class MainLayout extends Component <Props>{
     render() {    
         return (     
             <div className={styles.page}>

@@ -85,7 +85,7 @@ const renderField = ({ input, label, type, placeholder, meta: { touched, error }
 
 type Props = FormProps
 
-const InfoForm = (props: Props ) => {
+export const InfoForm = (props: Props ) => {
 
     const { handleSubmit } = props;
     return (

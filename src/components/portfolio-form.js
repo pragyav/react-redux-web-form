@@ -8,7 +8,7 @@ console.log("styles: ",styles);
 
 type Props = FormProps
 
-const PortfolioForm = (props: Props ) => {
+export const PortfolioForm = (props: Props ) => {
 
     const { handleSubmit } = props;
     return (   

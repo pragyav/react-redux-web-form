@@ -9,7 +9,7 @@ console.log("styles: ",styles);
 
 type Props = FormProps
 
-const SkillsForm = (props: Props) => {
+export const SkillsForm = (props: Props) => {
 
     const { handleSubmit } = props;
  

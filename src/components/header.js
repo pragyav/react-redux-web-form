@@ -9,7 +9,7 @@ import styles from "../styles/components/header.scss";
 type OwnProps = { i18n: Object }
 type Props = OwnProps & { t: TFunction }
 
-const Header = (props: Props) => {
+export const Header = (props: Props) => {
 
     const handleChangeLang=(e)=>{
         props.i18n.changeLanguage(e.target.value);        
